@@ -1820,6 +1820,17 @@ section {
     .hero-subtitle {
         font-size: 1rem;
     }
+    .stat-box{
+        padding: 0.1rem;
+    }
+    .stat-value{
+        font-size: 1.5rem;
+        padding: 0.1rem;
+    }
+    .stat-label{
+        font-size: 0.75rem;
+        padding: 0.1rem;
+    }
 
     section {
         padding: 60px 0;
@@ -1841,6 +1852,11 @@ section {
 
     .error-number {
         font-size: 4rem;
+    }
+    .hero-buttons{
+        gap: 0.5rem;
+        width: 80%;
+        margin-left: 10%;
     }
 }
 
