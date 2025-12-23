@@ -119,6 +119,8 @@ body {
 .logo-accent {
     color: var(--primary-color);
     margin-left: 0.25rem;
+
+
 }
 
 .nav-list {
@@ -1739,6 +1741,16 @@ section {
 }
 
 @media (max-width: 480px) {
+     .logo {
+        font-size: 1.25rem;
+    }
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .logo-accent{
+        font-size: 1rem;
+    }
     .hero-title {
         font-size: 2rem;
     }
@@ -1779,6 +1791,16 @@ section {
 }
 
 @media (max-width: 320px) {
+    .logo {
+        font-size: 1.25rem;
+    }
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .logo-accent{
+        font-size: 1rem;
+    }
     .container {
         padding: 0 15px;
     }
