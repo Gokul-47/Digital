@@ -410,50 +410,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
-// PRELOADER & REDIRECT (defaults: redirect to home2.html)
-// Logic: only redirect on first external visit per session
+// PRELOADER (no automatic redirect)
 // ============================================
 (function() {
     const preloader = document.getElementById('preloader');
-    const redirectTo = 'home2.html';
     const showMs = 800; // milliseconds to show after load
-    const sessionKey = 'preloaderRedirected';
-
-    function shouldRedirect(currentPage) {
-        // Don't redirect if we've already redirected this session
-        if (sessionStorage.getItem(sessionKey) === '1') return false;
-
-        // If referrer is from same origin, assume internal navigation -> don't redirect
-        try {
-            const ref = document.referrer;
-            if (ref) {
-                const refUrl = new URL(ref);
-                if (refUrl.origin === window.location.origin) return false;
-            }
-        } catch (e) {
-            /* ignore */
-        }
-
-        // Only redirect if current page isn't the target
-        return currentPage !== redirectTo;
-    }
 
     function finish() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         if (preloader) {
             preloader.classList.add('preloader-hidden');
-            setTimeout(() => {
-                preloader.remove();
-                if (shouldRedirect(currentPage)) {
-                    sessionStorage.setItem(sessionKey, '1');
-                    window.location.href = redirectTo;
-                }
-            }, 300);
-        } else {
-            if (shouldRedirect(currentPage)) {
-                sessionStorage.setItem(sessionKey, '1');
-                window.location.href = redirectTo;
-            }
+            setTimeout(() => { try { preloader.remove(); } catch(e) {} }, 300);
         }
     }
 
