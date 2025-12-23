@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly Digital Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logoimg.webp" alt="Stackly Digital Services Logo" class="logo-image ">
+                    <span class="logo-text">Stackly </span>
+                    <span class="logo-accent">Digital Services</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-list">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="dashboard">Dashboard</a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-login" data-page="login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="animated-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-up">
+                <span class="gradient-text">Transform Your Business</span><br>
+                With Digital Excellence
+            </h1>
+            <p class="hero-subtitle animate-fade-up-delay">We provide cutting-edge digital solutions to elevate your brand and drive growth</p>
+            <div class="hero-buttons animate-fade-up-delay-2">
+                <a href="#services" class="btn btn-primary">Get Started</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title">Digital Solutions That Drive Success</h2>
+                <p class="section-description">Comprehensive digital services tailored to your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom websites built with modern technologies and best practices</p>
+                    <a href="#" class="service-link" data-page="webdev">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android</p>
+                    <a href="#" class="service-link" data-page="mobile">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Beautiful and intuitive designs that enhance user experience</p>
+                    <a href="#" class="service-link" data-page="design">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategic marketing campaigns to boost your online presence</p>
+                    <a href="#" class="service-link" data-page="marketing">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Scalable cloud infrastructure for modern businesses</p>
+                    <a href="#" class="service-link" data-page="cloud">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>Protect your digital assets with advanced security solutions</p>
+                    <a href="#" class="service-link" data-page="security">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <div class="image-wrapper">
+                        <div class="floating-card card-1">
+                            <img src="assets/images/abt2.avif" alt="Decorative image 1">
+                        </div>
+                        <div class="floating-card card-2">
+                            <img src="assets/images/abt3.avif" alt="Decorative image 2">
+                        </div>
+                        <div class="floating-card card-3">
+                            <img src="assets/images/abt1.avif" alt="Logo decorative">
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <span class="section-tag">About Us</span>
+                    <h2>Leading Digital Innovation Since 2020</h2>
+                    <p>We are a team of passionate digital experts dedicated to helping businesses thrive in the digital age. Our mission is to deliver exceptional digital solutions that drive growth and success.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="500">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="200">0</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Team Members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Features That Set Us Apart</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick turnaround times without compromising quality</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Team</h3>
+                    <p>Skilled professionals with years of industry experience</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock assistance whenever you need it</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Rigorous testing to ensure flawless results</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Our Process</span>
+                <h2 class="section-title">How We Work</h2>
+            </div>
+            <div class="process-timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Discovery</h3>
+                        <p>We understand your business goals and requirements</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Planning</h3>
+                        <p>Strategic planning and roadmap development</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Development</h3>
+                        <p>Agile development with regular updates</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Launch</h3>
+                        <p>Deployment and post-launch support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active animate-on-scroll">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"Digital Services transformed our online presence. Their expertise and dedication are unmatched!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="assets/images/emp1.jpg" alt="John Smith">
+                            </div>
+                            <div class="author-info">
+                                <h4>John Smith</h4>
+                                <span>CEO, TechCorp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"Outstanding service and results. They delivered exactly what we needed and more!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="assets/images/emp2.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <span>Founder, StartupXYZ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Ready to Transform Your Digital Presence?</h2>
+                <p>Let's discuss how we can help you achieve your goals</p>
+                <a href="404.html" class="btn btn-primary btn-large" data-page="contact">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logoimg.webp" alt="Digital Services Logo" class="logo-image ">
+                        <span class="logo-text">Stackly</span>
+                        <span class="logo-accent">Digital Services</span>
+                    </div>
+                    <p>We are a leading digital services company dedicated to helping businesses succeed in the digital world. Our team of experts delivers innovative solutions tailored to your needs.</p>
+                    <div class="social-media">
+                        <span>Follow Us:</span>
+                        <div class="social-links">
+                            <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="404.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="404.html" data-page="about">About Us</a></li>
+                        <li><a href="404.html" data-page="contact">Contact</a></li>
+                        <li><a href="404.html" data-page="blog">Blog</a></li>
+                        <li><a href="404.html" data-page="dashboard">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Digital Street, Tech City, TC 12345</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@digitalservices.com</li>
+                        <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Digital Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
