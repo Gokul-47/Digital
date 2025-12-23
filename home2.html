@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div id="preloader" class="preloader preloader-hidden" aria-hidden="true">
+        <div class="preloader-spinner" aria-hidden="true"></div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.html" data-page="home">
                    <img src="assets/images/logoimg.webp" alt="Stackly Digital Services Logo" class="logo-image ">
                     <span class="logo-text">Stackly </span>
                     <span class="logo-accent">Digital Services</span>
@@ -27,7 +30,7 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link">Home 2<i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html" data-page="home">Home</a></li>
                         
                     </ul>
                 </li>

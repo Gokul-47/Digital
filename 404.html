@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="error-page">
+    <div id="preloader" class="preloader preloader-hidden" aria-hidden="true">
+        <div class="preloader-spinner" aria-hidden="true"></div>
+    </div>
     <div class="error-container">
         <div class="error-content">
             <div class="error-number animate-fade-up">404</div>
             <h1 class="error-title animate-fade-up-delay">Page Not Found</h1>
             <p class="error-description animate-fade-up-delay-2">Oops! The page you're looking for doesn't exist or has been moved.</p>
             <div class="error-buttons animate-fade-up-delay-3">
-                <a href="index.html" class="btn btn-primary">Go Home</a>
+                <a href="index.html" class="btn btn-primary" data-page="home">Go Home</a>
                 
             </div>
         </div>

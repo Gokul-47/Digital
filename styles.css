@@ -1540,6 +1540,30 @@ section {
     color: var(--gray-light);
 }
 
+/* Preloader */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.preloader-spinner {
+    width: 64px;
+    height: 64px;
+    border: 6px solid rgba(0,0,0,0.08);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.preloader.preloader-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
 /* ============================================
    404 PAGE
    ============================================ */

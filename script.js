@@ -6,29 +6,48 @@
 document.addEventListener('DOMContentLoaded', function() {
     const validPages = ['index.html', 'home2.html', '404.html'];
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
-    // Check if current page is valid
+
+    function navigateWithPreloader(target) {
+        const preloader = document.getElementById('preloader');
+        try { sessionStorage.setItem('preloaderOnNav', '1'); } catch (e) { /* ignore */ }
+        if (preloader) preloader.classList.remove('preloader-hidden');
+        // small delay so spinner is visible before navigation
+        setTimeout(() => { window.location.href = target; }, 120);
+    }
+
+    // If page is invalid, go to 404 using preloader
     if (!validPages.includes(currentPage) && currentPage !== '') {
-        window.location.href = '404.html';
+        navigateWithPreloader('404.html');
         return;
     }
 
-    // Handle navigation links with data-page attribute
+    // If we arrived here via a navigation that used the preloader, show it briefly then hide
+    if (sessionStorage.getItem('preloaderOnNav') === '1') {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.classList.remove('preloader-hidden');
+            setTimeout(() => {
+                preloader.classList.add('preloader-hidden');
+                try { sessionStorage.removeItem('preloaderOnNav'); } catch(e) {}
+            }, 400);
+        } else {
+            try { sessionStorage.removeItem('preloaderOnNav'); } catch(e) {}
+        }
+    }
+
+    // Handle navigation links with data-page attribute (use preloader on navigation)
     const navLinks = document.querySelectorAll('[data-page]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const page = this.getAttribute('data-page');
-            
-            // Only allow Home and Home 2 pages
+            let target = '404.html';
             if (page === 'home' || page === 'index') {
-                window.location.href = 'index.html';
+                target = 'index.html';
             } else if (page === 'home2') {
-                window.location.href = 'home2.html';
-            } else {
-                // Redirect all other pages to 404
-                window.location.href = '404.html';
+                target = 'home2.html';
             }
+            navigateWithPreloader(target);
         });
     });
 
@@ -37,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     serviceLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            window.location.href = '404.html';
+            navigateWithPreloader('404.html');
         });
     });
 
@@ -46,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     portfolioLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            window.location.href = '404.html';
+            navigateWithPreloader('404.html');
         });
     });
 
@@ -56,14 +75,35 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const page = link.getAttribute('data-page');
+            let target = '404.html';
             if (page === 'home' || page === 'index') {
-                window.location.href = 'index.html';
+                target = 'index.html';
             } else if (page === 'home2') {
-                window.location.href = 'home2.html';
-            } else {
-                window.location.href = '404.html';
+                target = 'home2.html';
             }
+            navigateWithPreloader(target);
         });
+    });
+
+    // Global handler for anchor links that are internal and not handled above
+    document.addEventListener('click', function(e) {
+        const a = e.target.closest('a');
+        if (!a) return;
+        if (e.defaultPrevented) return; // already handled
+        if (a.hasAttribute('data-page')) return; // handled above
+        if (a.target && a.target === '_blank') return; // external/new tab
+        const href = a.getAttribute('href');
+        if (!href) return;
+        if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+        try {
+            const url = new URL(href, window.location.href);
+            if (url.origin !== window.location.origin) return; // external
+            const target = url.pathname.split('/').pop() || url.href;
+            e.preventDefault();
+            navigateWithPreloader(target);
+        } catch (err) {
+            // invalid URL, ignore
+        }
     });
 });
 
@@ -368,4 +408,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// ============================================
+// PRELOADER & REDIRECT (defaults: redirect to home2.html)
+// Logic: only redirect on first external visit per session
+// ============================================
+(function() {
+    const preloader = document.getElementById('preloader');
+    const redirectTo = 'home2.html';
+    const showMs = 800; // milliseconds to show after load
+    const sessionKey = 'preloaderRedirected';
+
+    function shouldRedirect(currentPage) {
+        // Don't redirect if we've already redirected this session
+        if (sessionStorage.getItem(sessionKey) === '1') return false;
+
+        // If referrer is from same origin, assume internal navigation -> don't redirect
+        try {
+            const ref = document.referrer;
+            if (ref) {
+                const refUrl = new URL(ref);
+                if (refUrl.origin === window.location.origin) return false;
+            }
+        } catch (e) {
+            /* ignore */
+        }
+
+        // Only redirect if current page isn't the target
+        return currentPage !== redirectTo;
+    }
+
+    function finish() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        if (preloader) {
+            preloader.classList.add('preloader-hidden');
+            setTimeout(() => {
+                preloader.remove();
+                if (shouldRedirect(currentPage)) {
+                    sessionStorage.setItem(sessionKey, '1');
+                    window.location.href = redirectTo;
+                }
+            }, 300);
+        } else {
+            if (shouldRedirect(currentPage)) {
+                sessionStorage.setItem(sessionKey, '1');
+                window.location.href = redirectTo;
+            }
+        }
+    }
+
+    if (document.readyState === 'complete') {
+        setTimeout(finish, showMs);
+    } else {
+        window.addEventListener('load', function() {
+            setTimeout(finish, showMs);
+        });
+    }
+})();
 
