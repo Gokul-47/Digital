@@ -397,8 +397,8 @@
                 <div class="footer-col footer-contact">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Digital Street, Tech City, TC 12345</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i><a href="#" id="open-map" data-location="Evolve workstudion, Bangalore, Karnataka">Evolve workstudion, Bangalore, Karnataka</a></li>
+                        <li><i class="fas fa-phone"></i> +91 1234567890</li>
                         <li><i class="fas fa-envelope"></i> info@digitalservices.com</li>
                         <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
                     </ul>
@@ -409,6 +409,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Map modal -->
+    <div id="map-modal" class="map-modal" aria-hidden="true">
+        <div class="map-modal-dialog" role="dialog" aria-modal="true" aria-label="Location map">
+            <button class="map-close" aria-label="Close map">&times;</button>
+            <iframe class="map-iframe" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

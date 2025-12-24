@@ -409,6 +409,64 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Map modal handlers
+document.addEventListener('DOMContentLoaded', function() {
+    const openMap = document.getElementById('open-map');
+    const mapModal = document.getElementById('map-modal');
+    const mapIframe = document.querySelector('.map-iframe');
+    const mapClose = document.querySelector('.map-close');
+
+    function openMapModal(location) {
+        const url = 'https://www.google.com/maps?q=' + encodeURIComponent(location) + '&output=embed';
+        if (mapIframe) mapIframe.src = url;
+        if (mapModal) {
+            mapModal.classList.add('open');
+            mapModal.setAttribute('aria-hidden', 'false');
+            mapClose && mapClose.focus();
+        }
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMapModal() {
+        if (mapModal) {
+            mapModal.classList.remove('open');
+            mapModal.setAttribute('aria-hidden', 'true');
+        }
+        if (mapIframe) mapIframe.src = '';
+        document.body.style.overflow = '';
+    }
+
+    if (openMap) {
+        openMap.addEventListener('click', function(e) {
+            e.preventDefault();
+            const location = this.getAttribute('data-location') || 'Evolve workstudion, Bangalore, Karnataka';
+            openMapModal(location);
+        });
+    }
+
+    if (mapClose) {
+        mapClose.addEventListener('click', function() {
+            closeMapModal();
+        });
+    }
+
+    // Close on click outside dialog
+    if (mapModal) {
+        mapModal.addEventListener('click', function(e) {
+            if (e.target === mapModal) {
+                closeMapModal();
+            }
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mapModal && mapModal.classList.contains('open')) {
+            closeMapModal();
+        }
+    });
+});
+
 // ============================================
 // PRELOADER (no automatic redirect)
 // ============================================
